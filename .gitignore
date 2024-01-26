@@ -1,5 +1,9 @@
-*.png
 *.JPG
 *.jpg
 *.txt
 *.ipynb_checkpoints
+/model_v1/*
+/__pycache__/*
+*/1280x1280/*
+*/640x640/*
+*.pyc
