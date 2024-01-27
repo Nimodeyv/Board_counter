@@ -17,7 +17,9 @@ import import_functions
 model_path = r'../model_v2/v2.1_25_epochs/last.pt'
 model = YOLO(model_path)
 
-app = FastAPI()
+app = FastAPI(title="Wood board Counter",
+             version='5.1',
+              contact={'name':'nimodeyv'})
 
 
 class Image(BaseModel):
