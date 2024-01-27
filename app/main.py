@@ -11,6 +11,7 @@ from fastapi.responses import FileResponse
 from ultralytics import YOLO
 from datetime import datetime
 from pydantic import BaseModel, Field
+import cv2
 import import_functions
 
 model_path = r'../model_v2/v2.1_25_epochs/last.pt'
@@ -22,16 +23,27 @@ app = FastAPI()
 class Image(BaseModel):
     seuil_de_detection : float = Field(default = 0.3)
     path : str = Field(default =  "../raw_images/IMG_0287.JPG")
+    crop_horiz_min : int = Field(default = 0)
+    crop_horiz_max : int = Field(default = 0)
+    crop_vert_min : int = Field(default = 0)
+    crop_vert_max : int = Field(default = 0)
 
 @app.post("/predict/")
 async def predict(f:Image):
-    results = model.predict(source=f.path, # image_to_predict
+    img = cv2.imread(f.path)
+    if f.crop_horiz_max == 0: f.crop_horiz_max = img.shape[0]
+    if f.crop_vert_max == 0: f.crop_vert_max = img.shape[1]  
+    img = img[f.crop_horiz_min:f.crop_horiz_max, f.crop_vert_min:f.crop_vert_max, :]
+    
+    results = model.predict(source=img, # image_to_predict
                             show=False, 
                             conf=f.seuil_de_detection,
                             save=False, 
                             line_width=3,
                             project='Board_counter',
                             );
+    # import_functions.show(results, f.crop_horiz_min, f.crop_horiz_max, 
+    #                       f.crop_vert_min, f.crop_vert_max)
     import_functions.show(results)
     return FileResponse('./predict_image.JPG')#,headers={"nb de planches":results[0].__len__() , "fichier":f.path})
     
