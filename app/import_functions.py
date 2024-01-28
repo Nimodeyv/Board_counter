@@ -27,4 +27,4 @@ def show(results):
         plt.xlabel('numéro de box')
         plt.ylabel('Confidence')
         plt.grid()
-        plt.savefig('./predict_image.JPG')
+        plt.savefig('./predict/predict_image.JPG')

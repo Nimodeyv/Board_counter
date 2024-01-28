@@ -14,7 +14,7 @@ from pydantic import BaseModel, Field
 import cv2
 import import_functions
 
-model_path = r'../model_v2/v2.1_25_epochs/last.pt'
+model_path = r'./model/last.pt'
 model = YOLO(model_path)
 
 app = FastAPI(title="Wood board Counter",
@@ -24,7 +24,7 @@ app = FastAPI(title="Wood board Counter",
 
 class Image(BaseModel):
     seuil_de_detection : float = Field(default = 0.3)
-    path : str = Field(default =  "../raw_images/IMG_0287.JPG")
+    path : str = Field(default =  "./raw_images/IMG_0287.JPG")
     crop_horiz_min : int = Field(default = 0)
     crop_horiz_max : int = Field(default = 0)
     crop_vert_min : int = Field(default = 0)
@@ -47,7 +47,7 @@ async def predict(f:Image):
     # import_functions.show(results, f.crop_horiz_min, f.crop_horiz_max, 
     #                       f.crop_vert_min, f.crop_vert_max)
     import_functions.show(results)
-    return FileResponse('./predict_image.JPG')#,headers={"nb de planches":results[0].__len__() , "fichier":f.path})
+    return FileResponse('./predict/predict_image.JPG')#,headers={"nb de planches":results[0].__len__() , "fichier":f.path})
     
 @app.get("/healthcheck")
 def health():
