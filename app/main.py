@@ -3,7 +3,7 @@
 # 3. Ouvrir un terminal dans le répertoire app
 # 4. Se placer dans l'environnement conda, Lancer uvicorn dans le terminal: uvicorn main:app --reload
 # 5. Ouvrir une page web http://127.0.0.1:8000/docs
-# 6. Pour lancer depuis Docker: Creer une image docker avec Dockerfile
+# 6. Creer une image docker avec Dockerfile docker build -t myapp:latest .
 # 7. Pour utiliser Docker, Voir tutorial
 
 from fastapi import FastAPI
