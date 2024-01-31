@@ -20,7 +20,7 @@ def show(results):
                                  (coord[:,1]+coord[:,3])/2,np.array(r.boxes.conf)))
         
         for i,c in enumerate(coord):
-            plt.text(x=c[4], y=c[5], s=i+1)
+            plt.text(x=c[4], y=c[5], s=i)
 
         plt.subplot(1,2,2)
         plt.plot(coord[:,6], marker='o')

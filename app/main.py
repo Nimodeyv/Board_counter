@@ -1,10 +1,10 @@
 # 1. Installer fastapi dans l'environnement: conda install fastapi
 # 2. Installer uvicorn : conda install "uvicorn[standard]"
-# 3. Lancer uvicorn dans un terminal: uvicorn main:app --reload
-# 4. Ouvrir une page web http://127.0.0.1:8000/docs
-# TEST WITH ../raw_images/IMG_0287.JPG
-
-# 5. Creer une image et lancer docker https://fastapi.tiangolo.com/fr/deployment/docker/  NE FONCTIONNE PAS
+# 3. Ouvrir un terminal dans le répertoire app
+# 4. Se placer dans l'environnement conda, Lancer uvicorn dans le terminal: uvicorn main:app --reload
+# 5. Ouvrir une page web http://127.0.0.1:8000/docs
+# 6. Pour lancer depuis Docker: Creer une image docker avec Dockerfile
+# 7. Pour utiliser Docker, Voir tutorial
 
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
