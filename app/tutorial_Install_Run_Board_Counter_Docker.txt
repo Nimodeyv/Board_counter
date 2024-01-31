@@ -4,16 +4,16 @@ Board_counter
 How to install board_counter on your laptop for the first time ?
 /---------------------------------------------------------------------------------/
 1. Install Docker desktop on you computer https://docs.docker.com/desktop/
-2. In the search bar type board_counter, you should see nimodeyv2868/board_counter:v6.0, click on pull. It will take a few minutes.
+2. In the search bar type board_counter, you should see nimodeyv2868/board_counter:v7.1, click on pull. It will take a few minutes.
 3. Once the docker image is loaded, check that you should see it in your images list
 
 4. Create a directory board_counter
 5. Open a terminal (windows command or bash)
 6. Navigate to this directory using cd
 7. Once you are in this directory, we will create the container with the forward path for directory and port, type this command line:
-	docker run -v /your/local/path:/app/raw_images -p 8000:8000 -it --name board_counter nimodeyv2868/board_counter:v6.0
+	docker run -v /your/local/path:/app/raw_images -p 8000:8000 -it --name board_counter nimodeyv2868/board_counter:v7.1
 	For example: 
-	docker run -v C:/Users/nimod/Documents/Board_counter/raw_images:/app/raw_images -p 8000:8000 -it --name board_counter nimodeyv2868/board_counter:v6.0
+	docker run -v C:/Users/nimod/Documents/Board_counter/raw_images:/app/raw_images -p 8000:8000 -it --name board_counter nimodeyv2868/board_counter:v7.1
 	
 /---------------------------------------------------------------------------------/
 How to start running Board_counter Application ?
@@ -43,6 +43,6 @@ How to use Board_counter ?
 	
 Limits & bugs of this version:
 	- This model was trained on only 2 pictures, and one type of boards, it is therefore very limited, but this was not the intial purpose of this project.
-	- Onv 6.0 there is an offset between the number of board/box on the pictures and the ones on the graph. Picture board number = Graph box number + 1. It is corrected in version v7.1.
+	- On version v6.0 there is an offset between the number of board/box on the pictures and the ones on the graph. Picture board number = Graph box number + 1. It is corrected in version v7.1.
 	
 
